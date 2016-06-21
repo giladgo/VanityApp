@@ -13,6 +13,9 @@ import {
 	Image
 } from 'react-native';
 
+import MarqueeLabel from '@remobile/react-native-marquee-label'
+
+
 class VanityApp extends Component {
   render() {
     return (
@@ -20,9 +23,16 @@ class VanityApp extends Component {
 				<View style={styles.bgWrapper}>
 					<Image style={styles.backgroundImage} source={require('./bg.png')} />
 				</View>
-        <Text style={styles.title}>
-          ALL YOUR $$$ ARE BELONG TO US
-				</Text>
+				<MarqueeLabel style={styles.marqueeLabel}
+                     text="ALL YOUR $$$ ARE BELONG TO US | ALL YOUR $$$ ARE BELONG TO US"
+                     marqueeType="MLContinuous"
+                     scrollDuration={3.0}
+                     fadeLength={0.0}
+                     leadingBuffer={0.0}
+                     trailingBuffer={50}
+                     textColor='white'
+                     font={{fontSize:20, fontWeight: 0.4}}
+                     />
       </View>
     );
   }
@@ -34,11 +44,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-		backgroundColor: 'transparent'
+  marqueeLabel: {
+    backgroundColor: 'black',
+		flexDirection: 'row',
+    alignSelf: 'stretch',
+    height: 140
   },
 	backgroundImage: {
 		resizeMode: 'cover',
